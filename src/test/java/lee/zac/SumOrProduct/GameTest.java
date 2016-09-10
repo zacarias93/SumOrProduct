@@ -21,5 +21,12 @@ public class GameTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void engineTest() {
+        Game game1 = new Game();
+        String expected = "The product is: 120";
+        String actual = game1.engine(5,"Product");
+        assertEquals(expected, actual);
+    }
 
 }
