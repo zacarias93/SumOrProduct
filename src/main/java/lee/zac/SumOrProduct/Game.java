@@ -7,7 +7,14 @@ import java.util.Scanner;
 /**
  * Created by zaclee on 9/9/16.
  */
-public class Main {
+public class Game {
+
+    public int product(int n) {
+        int answer = 1;
+        for(int i=1; i<=n; i++) {
+            answer 
+        }
+    }
 
     public static void main(String[] args) {
 
