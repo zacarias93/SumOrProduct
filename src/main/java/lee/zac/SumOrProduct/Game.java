@@ -1,44 +1,57 @@
-package lee.zac.SumOrProduct.lee.zac.SumOrProduct;
-
-import lee.zac.SumOrProduct.lee.zac.SumOrProduct.Arithmetic;
+package lee.zac.SumOrProduct;
 
 import java.util.Scanner;
 
-/**
- * Created by zaclee on 9/9/16.
- */
 public class Game {
 
-    public int product(int n) {
-        int answer = 1;
-        for(int i=1; i<=n; i++) {
-            answer 
-        }
-    }
+    int userValue;
+    String userChoice;
 
-    public static void main(String[] args) {
+    public void getInput() {
 
         System.out.println("Please enter a number: ");
         Scanner in1 = new Scanner(System.in);
-        int num = in1.nextInt();
+        userValue = in1.nextInt();
 
-        System.out.println("Would you like the Sum or the Product of numbers up to " + num + "?");
+        System.out.println("Would you like the Sum or the Product of numbers up to " + userValue + "?");
         Scanner in2 = new Scanner(System.in);
-        String answer = in2.nextLine();
+        userChoice = in2.nextLine();
+    }
 
-        if(answer.equals("Sum")) {
-
-            Arithmetic arithmetic = new Arithmetic();
-            int sumTotal = arithmetic.sum(num);
-            System.out.println("The total of the sum is: " + sumTotal);
+    public String engine(int userValue, String userChoice) {
+        Game game = new Game();
+        if(userChoice.equals("Sum")) {
+           return "The sum is : " + game.sum(userValue);
         }
-
-        else if(answer.equals("Product")) {
-
-            Arithmetic arithmetic = new Arithmetic();
-            int productTotal = arithmetic.product(num);
-            System.out.println("The total of the product is: " + productTotal);
+        else if(userChoice.equals("Product")) {
+            return "The product is: " + game.product(userValue);
         }
+        else {
+            return ("Please try again.");
+        }
+    }
 
+    public int product(int userValue) {
+        int answer = 1;
+        for(int i=1; i<=userValue; i++) {
+            answer *= i;
+        }
+        return answer;
+    }
+
+    public int sum(int userValue) {
+        int answer = 0;
+        for(int i=1; i<=userValue; i++) {
+            answer += i;
+        }
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Game game = new Game();
+        while(true) {
+            game.getInput();
+            System.out.println(game.engine(game.userValue, game.userChoice));
+        }
     }
 }
